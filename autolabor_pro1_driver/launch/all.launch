@@ -1,0 +1,13 @@
+<launch>
+	<arg name="debug" default="false"/>
+
+	<include file="$(find fdilink_ahrs)/launch/ahrs_driver.launch">
+	<include file="$(find rslidar_sdk)/launch/start.launch">
+	
+
+	</include>
+
+
+
+
+</launch>
