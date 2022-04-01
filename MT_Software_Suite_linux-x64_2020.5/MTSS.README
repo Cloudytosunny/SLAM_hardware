@@ -1,0 +1,27 @@
+=[ MTSS For Linux ]============================================================
+
+Contents:
+	MTSS.README
+		Yours truly
+	mtmanager_linux-x**_version.tar.gz
+		Archive containing the Xsens MT Manager software
+		Unpack to your favored location
+		Running the MT Manager:
+			At your unpack location goto the "./mtmanager/linux-*/bin" directory. 
+			In this directory start the "mtmanager" executable to start MT Manager.
+		At your unpack location check "./mtmanager/linux-*/doc/MTM.README for more information
+	mtsdk_linux-x**_version.sh
+		Script archive containing the Xsens MTSDK
+		Run and follow instructions to install the MTSDK (Use sudo to install in the default location)
+		At your install location check "./MTSDK.README for more information
+	magfieldmapper_linux-x**_version.tar.gz
+		Archive containing the Xsens Magnetic Field Mapper software
+		Unpack to your favored location
+		Running the Magnetic Field Mapper:
+			At your unpack location goto the "./magfieldmapper_gui/linux-*/bin" directory. 
+			In this directory start the "magfieldmapper_gui" executable to start Magfield Mapper.
+		At your unpack location check "./magfieldmapper_gui/linux-*/doc/MFM.README for more information
+	mfmsdk_linux-x**_version.sh
+		Script archive containing the Xsens MFMSDK
+		Run and follow instructions to install the MFMSDK (Use sudo to install in the default location)
+		At your install location check "./MFMSDK.README for more information
