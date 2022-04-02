@@ -1,0 +1,2 @@
+xsens_ros_mti_driver
+-DCATKIN_DEVEL_PREFIX=/home/seu/catkin_xsens/devel -DCMAKE_INSTALL_PREFIX=/home/seu/catkin_xsens/install -G Unix Makefiles
