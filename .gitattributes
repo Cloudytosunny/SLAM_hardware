@@ -1,0 +1,2 @@
+mtsdk_linux-x64_2020.5.sh filter=lfs diff=lfs merge=lfs -text
+MT_Software_Suite_linux-x64_2020.5/mtsdk_linux-x64_2020.5.sh filter=lfs diff=lfs merge=lfs -text
