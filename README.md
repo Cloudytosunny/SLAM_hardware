@@ -52,6 +52,8 @@ roslaunch rslidar_sdk start.launch
 # IMU
 ## wheeltec imu n100
 IMU 采用的 [wheeltec imu n100](https://detail.tmall.com/item.htm?spm=4657t.1.14.16.96184d96jPmBzk&id=645061129098&ns=1&abbucket=18)
+
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/c02ef0f3ef124b6ea9b405edbff2d9a7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ2xvdWR5X3RvX3N1bm55,size_25,color_FFFFFF,t_70,g_se,x_16#pic_center =400x400 )
 这个IMU的功能包对应我的[github](https://github.com/Cloudytosunny/SLAM_hardware)里面的fdilink_ahrs功能包，直接克隆并创建工作空间(catkin_imu)放到src里面
 
