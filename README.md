@@ -1,4 +1,4 @@
-﻿@[TOC](SLAM硬件搭建（激光雷达+IMU+相机+移动底盘）)
+
 
 # 激光雷达
 ## 官方github下载安装
@@ -52,6 +52,7 @@ roslaunch rslidar_sdk start.launch
 # IMU
 ## wheeltec imu n100
 IMU 采用的 [wheeltec imu n100](https://detail.tmall.com/item.htm?spm=4657t.1.14.16.96184d96jPmBzk&id=645061129098&ns=1&abbucket=18)
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/c02ef0f3ef124b6ea9b405edbff2d9a7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ2xvdWR5X3RvX3N1bm55,size_25,color_FFFFFF,t_70,g_se,x_16#pic_center =400x400 )
 这个IMU的功能包对应我的[github](https://github.com/Cloudytosunny/SLAM_hardware)里面的fdilink_ahrs功能包，直接克隆并创建工作空间(catkin_imu)放到src里面
 
@@ -84,11 +85,15 @@ rostopic list
 ```javascript
 rostopic echo /imu_data
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/fda081fc08334b40a279edfc94e7b5c6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ2xvdWR5X3RvX3N1bm55,size_15,color_FFFFFF,t_70,g_se,x_16)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/fda081fc08334b40a279edfc94e7b5c6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ2xvdWR5X3RvX3N1bm55,size_15,color_FFFFFF,t_70,g_se,x_16#pic_center)
+
+
 在打开rviz里面也可以看到imu 信息，add 话题 增加imu信息，坐标系换成imu 即可。
 ## xsens mti300
 这里后来使用了价格更贵一点的xsens mti300 IMU
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/8fc9de6dd8fd4c2e9707613f479b379c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ2xvdWR5X3RvX3N1bm55,size_10,color_FFFFFF,t_70,g_se,x_16#pic_center)
+
+
 这一款的软件套件比较简单可以直接去[官网的知识库](https://www.xsens.cn/software-downloads/)下载对应的软件套装，按照CSDN上的教程[1](https://blog.csdn.net/mr_yu_1997/article/details/120895748?ops_request_misc=&request_id=&biz_id=102&utm_term=xsens%20mti300&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-120895748.142^v5^pc_search_result_control_group,143^v6^register&spm=1018.2226.3001.4187)或者[2](https://blog.csdn.net/learning_tortosie/article/details/97806633?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164853588216780269842076%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164853588216780269842076&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-97806633.142^v5^pc_search_result_control_group,143^v6^register&utm_term=xsens+mti300&spm=1018.2226.3001.4187)进行学习安装
 
 或着在我的[Github](https://github.com/Cloudytosunny/SLAM_hardware)里面下载MT_Software_Suite_linux-64_2020.5 并执行里面的mtsdk_linux-x64_2020.5sh脚本 结果会在/usr/local/xsens/下生成一些文件 其中xsens_ros_mti_driver这个文件夹就对应我的Github里面的那个功能包，把这个功能包放在新建的工作空间的src下面编译catkin_make并运行就可以发出以下话题（必须得知道使用的是哪个串口，并提升权限）
@@ -99,7 +104,10 @@ sudo chmod 777 /dev/ttyUSB0  //对应自己的USB口
 source devel/setup.bash 
 roslaunch xsens_mti_driver display.launch 
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/0cce92ef6edb47b3b009cd3673020cd1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ2xvdWR5X3RvX3N1bm55,size_15,color_FFFFFF,t_70,g_se,x_16)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/0cce92ef6edb47b3b009cd3673020cd1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ2xvdWR5X3RvX3N1bm55,size_15,color_FFFFFF,t_70,g_se,x_16#pic_center)
+
+
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/8fcfbac57b224260bf683f93bb2ff045.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ2xvdWR5X3RvX3N1bm55,size_20,color_FFFFFF,t_70,g_se,x_16)
 在MT_Software文件夹里面会有一个管理软件可以对这款imu进行设置输出以及其他参数，具体的运行方式为
 ```javascript
@@ -130,7 +138,9 @@ roslaunch xsens_driver xsens_driver.launch
 ```
 输出的话题为(交那个功能包少了点话题)：
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/211590a9ab16499f80843d89e4b64c86.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/211590a9ab16499f80843d89e4b64c86.png#pic_center)
+
+
 这里有一个奇怪的问题，就是在ARM上运行后不能使用 rostopic echo /imu/data 打印信息，一打印就报错或者很卡，最终在管理器软件上修改了参数使得这个问题得到解决。具体修改后的参数为：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/5eb020280ace43098313f8bf60beb045.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ2xvdWR5X3RvX3N1bm55,size_20,color_FFFFFF,t_70,g_se,x_16)
 
@@ -138,6 +148,8 @@ roslaunch xsens_driver xsens_driver.launch
 
 移动底盘采用的是Autolabor Pro1(AP1)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/405e30d99ac0401789443d4d93546d46.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ2xvdWR5X3RvX3N1bm55,size_11,color_FFFFFF,t_70,g_se,x_16#pic_center)
+
+
 它主要在上位机上是通过232进行控制，在我的Github里面对应autolabor_keyboard_control功能包和autolabor_porq_driver功能包后者是主要的功能包，前者是采用键盘对它进行控制的功能包
 
 把这个两个功能包放在一个catkin_ws里面的src下面就可了，然后编译即可，记得source一下setup.bash
